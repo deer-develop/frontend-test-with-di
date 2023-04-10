@@ -8,7 +8,7 @@ type Props = {
 
 export default function Home({ track }: Props) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
+    <div className="flex min-h-screen flex-col items-center justify-center p-20">
       <div className={"flex space-x-2"}>
         <div className={"flex items-center"}>
           <GentlyShakingInteraction>
@@ -22,6 +22,9 @@ export default function Home({ track }: Props) {
         </div>
         <Button onClick={() => track("home:apply-button:click")}>
           사용 신청하기
+        </Button>
+        <Button onClick={() => track("home:signup:click")}>
+          회원 가입하기
         </Button>
       </div>
     </div>

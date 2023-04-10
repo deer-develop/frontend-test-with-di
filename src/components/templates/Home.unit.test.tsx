@@ -48,4 +48,16 @@ describe("Home", () => {
     //then
     expect(track).toHaveBeenNthCalledWith(1, "home:apply-button:click");
   });
+
+  it("should call track function with 'home:signup:click' argument when '회원 가입하기' button is clicked.", () => {
+    // given
+    const track = vi.fn();
+    const rendered = render(<Home track={track} />);
+
+    // when
+    rendered.getByText("회원 가입하기").click();
+
+    //then
+    expect(track).toHaveBeenNthCalledWith(1, "home:signup:click");
+  });
 });
