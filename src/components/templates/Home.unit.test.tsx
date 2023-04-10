@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import React from "react";
 import Home from "@/components/templates/Home";
 import { UserTracker } from "@/domain/model/UserTracker";
+import LinkStub from "@/domain/model/LinkStub";
 
 type Stub<F extends (...args: any) => any> = {
   f: F;
@@ -28,7 +29,7 @@ describe("Home", () => {
 
   it("should call track function with 'home:product-tour-button:click' argument when '무료 체험 시작하기' button is clicked.", () => {
     // given
-    const rendered = render(<Home track={trackStub.f} />);
+    const rendered = render(<Home Link={LinkStub} track={trackStub.f} />);
 
     // when
     rendered.getByText("무료 체험 시작하기").click();
@@ -40,7 +41,7 @@ describe("Home", () => {
   it("should call track function with 'home:apply-button:click' argument when '사용 신청하기' button is clicked.", () => {
     // given
     const track = vi.fn();
-    const rendered = render(<Home track={track} />);
+    const rendered = render(<Home Link={LinkStub} track={track} />);
 
     // when
     rendered.getByText("사용 신청하기").click();
@@ -52,7 +53,7 @@ describe("Home", () => {
   it("should call track function with 'home:signup:click' argument when '회원 가입하기' button is clicked.", () => {
     // given
     const track = vi.fn();
-    const rendered = render(<Home track={track} />);
+    const rendered = render(<Home Link={LinkStub} track={track} />);
 
     // when
     rendered.getByText("회원 가입하기").click();
