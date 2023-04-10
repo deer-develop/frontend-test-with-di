@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm test:run && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest --watch",
+    "test:run": "NODE_ENV=test vitest run"
   },
   "dependencies": {
     "@types/node": "18.15.11",
@@ -22,10 +24,17 @@
     "typescript": "5.0.3"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
+    "jsdom": "^21.1.1",
     "postcss": "^8.4.21",
     "prettier": "2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.6",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.2.1",
+    "vite-tsconfig-paths": "^4.0.8",
+    "vitest": "^0.30.0"
   }
 }
