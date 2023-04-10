@@ -36,4 +36,16 @@ describe("Home", () => {
     //then
     expect(trackStub.args?.[0]).toBe("home:product-tour-button:click");
   });
+
+  it("should call track function with 'home:apply-button:click' argument when '사용 신청하기' button is clicked.", () => {
+    // given
+    const track = vi.fn();
+    const rendered = render(<Home track={track} />);
+
+    // when
+    rendered.getByText("사용 신청하기").click();
+
+    //then
+    expect(track).toHaveBeenNthCalledWith(1, "home:apply-button:click");
+  });
 });
